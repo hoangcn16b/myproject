@@ -26,6 +26,7 @@ class CreateCategoriesTable extends Migration
             $table->string('ordering')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
+            
             $table->timestamps();
         });
     }
