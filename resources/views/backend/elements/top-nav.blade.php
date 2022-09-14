@@ -15,7 +15,7 @@
                 {{-- <i class="mdi mdi-view-grid"></i> --}}
                 <i class="mdi mdi-eye"></i> View
             </a>
-            
+
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
@@ -52,7 +52,7 @@
                     </div>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
+                <a class="dropdown-item preview-item" href="{{ route('auth/logout') }}">
                     <div class="preview-thumbnail">
                         <div class="preview-icon bg-dark rounded-circle">
                             <i class="mdi mdi-logout text-danger"></i>
@@ -62,7 +62,7 @@
                         <p class="preview-subject mb-1">Log out</p>
                     </div>
                 </a>
-                
+
             </div>
         </li>
     </ul>

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
-
+// use App\Http\Controllers\Frontend\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,26 +23,26 @@ use Illuminate\Support\Facades\Route;
 //     [App\Http\Controllers\Admin\HomeController::class, 'home']
 // )->name('home');
 
-$prefixFrontend = 'admin';
+$prefix         = 'admin';
+$controllerName = 'auth';
+Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
+    $controller = ucfirst($controllerName)  . 'Controller@';
+    Route::get('/login',        ['as' => $controllerName . '/login',      'uses' => $controller . 'login']);
+    Route::post('/postLogin',   ['as' => $controllerName . '/postLogin',  'uses' => $controller . 'postLogin']);
 
-Route::group(['prefix' => $prefixFrontend, 'namespace' => 'App\Http\Controllers\Admin'], function () {
+});
+
+$prefixBackend = 'admin';
+
+Route::group(['prefix' => $prefixBackend, 'middleware' => 'admin.login'], function () {
+
+    Route::get('/logout',       ['as' => 'auth/logout',     'uses' => 'App\Http\Controllers\Admin\AuthController@logout']);
+
     // ============================== HOME ==============================
     $prefix         = '';
     $controllerName = 'home';
-    Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
+    Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
         $controller = ucfirst($controllerName)  . 'Controller@';
         Route::get('/', ['as' => 'home/backend', 'uses' => 'HomeController@' . 'home']);
-    });
-
-    $prefix         = '';
-    $controllerName = 'auth';
-
-    Route::group(['prefix' =>  $prefix], function () use ($controllerName) {
-        $controller = ucfirst($controllerName)  . 'Controller@';
-        Route::get('/login',        ['as' => $controllerName . '/login',      'uses' => $controller . 'login']);
-        Route::post('/postLogin',   ['as' => $controllerName . '/postLogin',  'uses' => $controller . 'postLogin']);
-
-        // ====================== LOGOUT ========================
-        Route::get('/logout',       ['as' => $controllerName . '/logout',     'uses' => $controller . 'logout']);
     });
 });

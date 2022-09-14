@@ -27,18 +27,25 @@
                 <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
                     <div class="card col-lg-4 mx-auto">
                         <div class="card-body px-5 py-5">
-                            <h3 class="card-title text-left mb-3">Login</h3>
-                            <form>
+                            <h3 class="card-title text-center mb-3">Login Admin</h3>
+                            @if (session('error-login'))
+                                <div class="alert alert-danger">{{ session('error-login') }}</div>
+                            @endif
+                            @if (session('message-logout'))
+                                <div class="alert alert-danger">{{ session('message-logout') }}</div>
+                            @endif
+                            <form action="{{ route('auth/postLogin') }}" method="post">
+                                @csrf @method('post')
                                 <div class="form-group">
                                     <label>Username or email *</label>
-                                    <input type="text" class="form-control p_input">
+                                    <input type="text" name="email" class="form-control p_input">
                                 </div>
                                 <div class="form-group">
                                     <label>Password *</label>
-                                    <input type="text" class="form-control p_input">
+                                    <input type="text" name="password" class="form-control p_input">
                                 </div>
                                 <div class="form-group">
-                                    <a type="submit" class="btn btn-primary btn-block enter-btn">Login</a>
+                                    <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                                 </div>
                                 <div class="form-group">
                                     <a type="button" class="btn btn-danger btn-block enter-btn"
