@@ -18,11 +18,13 @@ class AdminLoginMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->level == 0) {
+            if (Auth::user()->level >= 2) {
                 return $next($request);
+            } else {
+                Auth::logout();
+                return redirect()->route('auth/login')->with('error-permitsion', 'Bạn không đủ quyền truy cập');
             }
-            return redirect()->route('auth/login')->with('error-permitsion', 'Bạn không đủ quyền truy cập');
         }
-        return redirect()->route('auth/login')->with('error-permitsion', 'Đăng nhập thất bại - không đủ quyền');
+        return redirect()->route('auth/login')->with('error-permitsion', 'Đăng nhập thất bại - Quá hạn truy cập');
     }
 }

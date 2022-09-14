@@ -34,6 +34,9 @@
                             @if (session('message-logout'))
                                 <div class="alert alert-danger">{{ session('message-logout') }}</div>
                             @endif
+                            @if (session('error-permitsion'))
+                                <div class="alert alert-danger">{{ session('error-permitsion') }}</div>
+                            @endif
                             <form action="{{ route('auth/postLogin') }}" method="post">
                                 @csrf @method('post')
                                 <div class="form-group">
