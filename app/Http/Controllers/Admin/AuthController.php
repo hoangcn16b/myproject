@@ -16,20 +16,12 @@ class AuthController extends Controller
             return redirect()->back();
         }
         // DB::table('users')->insert([
-        //     'name' => 'user',
-        //     'email' => 'user@gmail.com',
-        //     'level' => '1',
-        //     'password' => bcrypt('123456'),
-        // ], [
-        //     'name' => 'manager',
-        //     'email' => 'manager@gmail.com',
-        //     'level' => '2',
-        //     'password' => bcrypt('123456'),
-        // ], [
         //     'name' => 'admin',
         //     'email' => 'admin@gmail.com',
         //     'level' => '3',
         //     'password' => bcrypt('123456'),
+        //     'fullname' => 'hoang admin',
+        //     'address' => '101, p26',
         // ]);
         return view('backend.user.login', []);
     }

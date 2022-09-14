@@ -18,13 +18,20 @@
             </a>
         </li>
         <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('account/profile-index') }}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-account-outline"></i>
+                </span>
+                <span class="menu-title">My profile</span>
+            </a> 
+        </li>
+        <li class="nav-item menu-items">
             <a class="nav-link" href="">
                 <span class="menu-icon">
                     <i class="mdi mdi-laptop"></i>
                 </span>
                 <span class="menu-title">User</span>
-            </a>
-            
+            </a> 
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
