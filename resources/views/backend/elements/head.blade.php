@@ -19,3 +19,4 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
 
+    @livewireStyles

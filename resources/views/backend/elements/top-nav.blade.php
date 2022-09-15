@@ -11,7 +11,7 @@
     </ul>
     <ul class="navbar-nav navbar-nav-right">
         <li class="nav-item nav-settings d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('home/frontend') }}" target="_blank">
                 {{-- <i class="mdi mdi-view-grid"></i> --}}
                 <i class="mdi mdi-eye"></i> View
             </a>

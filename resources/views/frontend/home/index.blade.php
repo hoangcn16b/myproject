@@ -128,13 +128,13 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/shop/product-1.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{{ asset('frontend/img/shop/product-1.jpg') }}">
                             <div class="product__label">
                                 <span>Cupcake</span>
                             </div>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Dozen Cupcakes</a></h6>
+                            <h6><a href="{{ route('product/detail') }}">Dozen Cupcakes</a></h6>
                             <div class="product__item__price">$32.00</div>
                             <div class="cart_add">
                                 <a href="#">Add to cart</a>

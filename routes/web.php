@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Livewire\Admin\Status;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Frontend\HomeController;
 /*
@@ -61,5 +62,7 @@ Route::group(['prefix' => $prefixBackend, 'middleware' => 'admin.login'], functi
 
         Route::get('/slider/create', ['as' => $controllerName . '/create', 'uses' => $controller . 'create']);
         Route::post('/slider/edit', ['as' => $controllerName . '/edit', 'uses' => $controller . 'edit']);
+
+        Route::get('/slider/status', ['as' => 'status/edit', 'uses' => 'App\Http\Livewire\Admin\Status@edit']);
     });
 });

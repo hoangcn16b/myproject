@@ -2,6 +2,7 @@
 @section('content')
     @php
         $index = 1;
+        // $inTable = $inTable;
     @endphp
     <div class="main-panel">
         <div class="content-wrapper">
@@ -14,7 +15,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Bảng slider</h4>
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead>
@@ -47,11 +48,12 @@
                                                     </td>
                                                     <td> {{ $item->description }}</td>
                                                     <td>
-                                                        <a type="button" class="btn btn-{{ $iconStatus }} btn-fw">
-                                                            {{ $item->status }} </a>
+                                                        {{-- <livewire:admin.status :rowStatus="{{ $item->status }}" :rowId="{{ $item->id }}"
+                                                            :inTable="{{ $inTable }}" /> --}}
                                                     </td>
                                                     <td> <input type="number" class="form-control"
-                                                            value="{{ $item->ordering }}"></td>
+                                                            value="{{ $item->ordering }}">
+                                                    </td>
                                                     <td>
                                                         <a type="button" class="btn btn-{{ $iconSpecial }} btn-fw">
                                                             {{ $special }} </a>

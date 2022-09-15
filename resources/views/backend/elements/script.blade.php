@@ -30,3 +30,5 @@
 <!-- End custom js for this page -->
 
 <script src="{{ asset('backend/assets/js/my-js.js') }}"></script>
+
+@livewireScripts

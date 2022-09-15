@@ -6,18 +6,19 @@
                     <div class="header__top__inner">
                         <div class="header__top__left">
                             <ul>
-                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span>
+                                <li><a href="{{ route('user/login') }}">Sign in</a></span>
                                     {{-- <ul>
                                         <li>Spanish</li>
                                         <li>ENG</li>
                                     </ul> --}}
                                 </li>
-                                <li><a href="#">Sign up</a></span>
+                                <li><a href="{{ route('user/register') }}">Sign up</a></span>
                                 </li>
                             </ul>
                         </div>
                         <div class="header__logo">
-                            <a href="./index.html"><img src="{{ asset('frontend/img/logo.png') }}" alt=""></a>
+                            <a href="{{ route('home/frontend') }}"><img src="{{ asset('frontend/img/logo.png') }}"
+                                    alt=""></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
@@ -27,7 +28,7 @@
                                         alt=""></a>
                             </div>
                             <div class="header__top__right__cart">
-                                <a href="#"><img src="{{ asset('frontend/img/icon/cart.png') }}" alt="">
+                                <a href="{{ route('cart/index') }}"><img src="{{ asset('frontend/img/icon/cart.png') }}" alt="">
                                     <span></span></a>
                                 <div class="cart__price">Cart: <span>0 / 0vnđ</span></div>
                             </div>
