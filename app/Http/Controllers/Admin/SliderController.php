@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\MainController as MainController;
 
-class AccountController extends MainController
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Admin\Slider as MainModel;
+
+class SliderController extends MainController
 {
+    public $model;
+    public $pathViewController = 'backend.pages.slider.';  // slider
+    public $controllerName     = 'slider';
+    public $inTable     = 'sliders';
+    public function __construct()
+    {
+        $this->model = new MainModel();
+        view()->share('controllerName', $this->controllerName);
+        view()->share('inTable', $this->inTable);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,17 +27,22 @@ class AccountController extends MainController
      */
     public function index()
     {
-        return view('backend.profile.form', ['user' => Auth::user()]);
+        $items = $this->model->listItems();
+        return view('backend.pages.slider.index', ['items' => $items]);
     }
 
+    public function formAdd(Request $request)
+    {
+   
+        return view('backend.pages.slider.create',[]);
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
     }
 
     /**
@@ -38,7 +53,9 @@ class AccountController extends MainController
      */
     public function store(Request $request)
     {
-        //
+        echo '<pre>';
+        print_r ($request->all());
+        echo '</pre>';
     }
 
     /**
@@ -47,8 +64,9 @@ class AccountController extends MainController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
+        //
     }
 
     /**
@@ -57,10 +75,9 @@ class AccountController extends MainController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
-        $data = $request->all();
-  
+        //
     }
 
     /**
@@ -70,8 +87,9 @@ class AccountController extends MainController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        //
     }
 
     /**

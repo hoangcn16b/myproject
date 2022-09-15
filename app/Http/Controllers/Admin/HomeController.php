@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\MainController as MainController;
 
-
-class HomeController extends Controller
+class HomeController extends MainController
 {
 
     public function home(){

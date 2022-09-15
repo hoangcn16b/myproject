@@ -40,14 +40,26 @@ Route::group(['prefix' => $prefixBackend, 'middleware' => 'admin.login'], functi
     $controllerName = 'home';
     Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
         $controller = ucfirst($controllerName)  . 'Controller@';
-        Route::get('/', ['as' => 'home/backend', 'uses' => 'HomeController@' . 'home']);
+        Route::get('/dashboard', ['as' => 'home/backend', 'uses' => 'HomeController@' . 'home']);
     });
 
     // ============================== profile ==============================
     $controllerName = 'account';
     Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
         $controller = ucfirst($controllerName)  . 'Controller@';
-        Route::get('/account/profile-index', ['as' => 'account/profile-index', 'uses' => $controller . 'index']);
-        Route::post('/account/profile-edit', ['as' => 'account/profile-edit', 'uses' => $controller . 'edit']);
+        Route::get('/account/index', ['as' => 'account/index', 'uses' => $controller . 'index']);
+        Route::post('/account/edit', ['as' => 'account/edit', 'uses' => $controller . 'edit']);
+    });
+
+    // ============================== slider ==============================
+    $controllerName = 'slider';
+    Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
+        $controller = ucfirst($controllerName)  . 'Controller@';
+        Route::get('/slider/index', ['as' => $controllerName . '/index', 'uses' => $controller . 'index']);
+        Route::get('/slider/form', ['as' => $controllerName . '/formAdd', 'uses' => $controller . 'formAdd']);
+        Route::post('/slider/store', ['as' => $controllerName . '/store', 'uses' => $controller . 'store']);
+
+        Route::get('/slider/create', ['as' => $controllerName . '/create', 'uses' => $controller . 'create']);
+        Route::post('/slider/edit', ['as' => $controllerName . '/edit', 'uses' => $controller . 'edit']);
     });
 });
