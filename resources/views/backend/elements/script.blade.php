@@ -1,34 +1,36 @@
-<!-- plugins:js -->
-<script src="{{ asset('backend/assets/js/jquery-3.3.1.min.js') }}"></script>
-
-<script src="{{ asset('backend/assets/js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/jquery.barfiller.js') }}"></script>
-<script src="{{ asset('backend/assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/jquery.slicknav.js') }}"></script>
-<script src="{{ asset('backend/assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/jquery.nicescroll.min.js') }}"></script>
-
-<script src="{{ asset('backend/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-
-<!-- endinject -->
-<!-- Plugin js for this page -->
-<script src="{{ asset('backend/assets/vendors/chart.js/Chart.min.js') }}"></script>
-<script src="{{ asset('backend/assets/vendors/progressbar.js/progressbar.min.js') }}"></script>
-<script src="{{ asset('backend/assets/vendors/jvectormap/jquery-jvectormap.min.js') }}"></script>
-<script src="{{ asset('backend/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-<script src="{{ asset('backend/assets/vendors/owl-carousel-2/owl.carousel.min.js') }}"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="{{ asset('backend/assets/js/off-canvas.js') }}"></script>
-<script src="{{ asset('backend/assets/js/hoverable-collapse.js') }}"></script>
-<script src="{{ asset('backend/assets/js/misc.js') }}"></script>
-<script src="{{ asset('backend/assets/js/settings.js') }}"></script>
-<script src="{{ asset('backend/assets/js/todolist.js') }}"></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
-<script src="{{ asset('backend/assets/js/dashboard.js') }}"></script>
-<!-- End custom js for this page -->
-
-<script src="{{ asset('backend/assets/js/my-js.js') }}"></script>
+ <!-- jQuery -->
+ <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+ <!-- jQuery UI 1.11.4 -->
+ <script src="{{ asset('backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+ <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+ <script>
+     $.widget.bridge('uibutton', $.ui.button)
+ </script>
+ <!-- Bootstrap 4 -->
+ <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+ <!-- ChartJS -->
+ <script src="{{ asset('backend/plugins/chart.js/Chart.min.js') }}"></script>
+ <!-- Sparkline -->
+ <script src="{{ asset('backend/plugins/sparklines/sparkline.js') }}"></script>
+ <!-- JQVMap -->
+ <script src="{{ asset('backend/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+ <script src="{{ asset('backend/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+ <!-- jQuery Knob Chart -->
+ <script src="{{ asset('backend/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+ <!-- daterangepicker -->
+ <script src="{{ asset('backend/plugins/moment/moment.min.js') }}"></script>
+ <script src="{{ asset('backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
+ <!-- Tempusdominus Bootstrap 4 -->
+ <script src="{{ asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+ <!-- Summernote -->
+ <script src="{{ asset('backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
+ <!-- overlayScrollbars -->
+ <script src="{{ asset('backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+ <!-- AdminLTE App -->
+ <script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
+ <!-- AdminLTE for demo purposes -->
+ <script src="{{ asset('backend/dist/js/demo.js') }}"></script>
+ <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+ <script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script>
 
 @livewireScripts

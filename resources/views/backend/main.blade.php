@@ -5,25 +5,18 @@
     @include('backend.elements.head')
 </head>
 
-<body>
-    <div class="container-scroller">
-        <!-- partial:partials/_sidebar.html -->
-        @include('backend.elements.side-bar')
-        <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_navbar.html -->
-            <nav class="navbar p-0 fixed-top d-flex flex-row">
-                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
-                            alt="logo" /></a>
-                </div>
-                @include('backend.elements.top-nav')
-            </nav>
-
-            @yield('content')
-
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="{{ asset('backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo"
+                height="60" width="60">
         </div>
-        <!-- page-body-wrapper ends -->
+        @include('backend.elements.nav-bar')
+
+        @include('backend.elements.side-bar')
+
+        @yield('content')
     </div>
     @include('backend.elements.script')
 </body>

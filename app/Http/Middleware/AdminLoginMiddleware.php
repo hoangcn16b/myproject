@@ -25,6 +25,6 @@ class AdminLoginMiddleware
                 return redirect()->route('auth/login')->with('error-permitsion', 'Bạn không đủ quyền truy cập');
             }
         }
-        return redirect()->route('auth/login')->with('error-permitsion', 'Quá hạn truy cập');
+        return redirect()->route('auth/login')->with('error-permitsion', 'Hãy đăng nhập để vào trang quản trị');
     }
 }
