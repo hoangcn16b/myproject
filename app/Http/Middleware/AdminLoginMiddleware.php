@@ -18,7 +18,7 @@ class AdminLoginMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->level >= 2) {
+            if (Auth::user()->level <= 2) {
                 return $next($request);
             } else {
                 Auth::logout();

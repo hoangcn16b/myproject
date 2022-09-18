@@ -17,7 +17,7 @@ class AccountController extends MainController
      */
     public function index()
     {
-        return view('backend.profile.form', ['user' => Auth::user()]);
+        return view('admin.profile.form', ['user' => Auth::user()]);
     }
 
     /**

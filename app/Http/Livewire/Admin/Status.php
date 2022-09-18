@@ -2,13 +2,12 @@
 
 namespace App\Http\Livewire\Admin;
 
-// use Livewire\Component;
-use Illuminate\View\Component;
+use App\Http\Livewire\Notification;
+use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
 class Status extends Component
 {
-
     public $rowId;
     public $rowStatus;
     public $inTable;
@@ -28,19 +27,20 @@ class Status extends Component
                 ->where('id', $this->rowId)
                 ->update(['status' => $this->rowStatus]);
             // toastr()->success('Thay đổi thành công!');
-            // $this->dispatchBrowserEvent(
-            //     'alert',
-            //     ['type' => 'success',  'message' => 'Thay đổi thành công!']
-            // );
+            $this->dispatchBrowserEvent(
+                'alert',
+                ['type' => 'success',  'message' => 'Thay đổi thành công!']
+            );
         } catch (\Throwable $th) {
-            // $this->dispatchBrowserEvent(
-            //     'alert',
-            //     ['type' => 'error',  'message' => 'Thay đổi thất bại!']
-            // );
+            $this->dispatchBrowserEvent(
+                'alert',
+                ['type' => 'error',  'message' => 'Thay đổi thất bại!']
+            );
         }
     }
+
     public function render()
     {
-        return view('livewire.admin.status');
+        return view('livewire.status');
     }
 }

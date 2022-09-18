@@ -38,18 +38,18 @@ Route::group(['prefix' => $prefixBackend, 'middleware' => 'admin.login'], functi
 
     // ============================== HOME ==============================
     $prefix         = '';
-    $controllerName = 'home';
+    $controllerName = 'admin';
     Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
         $controller = ucfirst($controllerName)  . 'Controller@';
-        Route::get('/dashboard', ['as' => 'home/backend', 'uses' => 'HomeController@' . 'home']);
+        Route::get('/dashboard', ['as' => 'admin/dashboard', 'uses' => 'HomeController@' . 'home']);
     });
 
     // ============================== profile ==============================
     $controllerName = 'account';
     Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
         $controller = ucfirst($controllerName)  . 'Controller@';
-        Route::get('/account/index', ['as' => 'account/index', 'uses' => $controller . 'index']);
-        Route::post('/account/edit', ['as' => 'account/edit', 'uses' => $controller . 'edit']);
+        Route::get('/account/index', ['as' => 'admin/account/index', 'uses' => $controller . 'index']);
+        Route::post('/account/edit', ['as' => 'admin/account/edit', 'uses' => $controller . 'edit']);
     });
 
     // ============================== slider ==============================
@@ -64,5 +64,22 @@ Route::group(['prefix' => $prefixBackend, 'middleware' => 'admin.login'], functi
         Route::post('/slider/edit', ['as' => $controllerName . '/edit', 'uses' => $controller . 'edit']);
 
         Route::get('/slider/status', ['as' => 'status/edit', 'uses' => 'App\Http\Livewire\Admin\Status@edit']);
+    });
+
+    // ============================== category ==============================
+    $controllerName = 'category';
+    Route::group(['prefix' =>  $prefix, 'namespace' => 'App\Http\Controllers\Admin'], function () use ($controllerName) {
+        $controller = ucfirst($controllerName)  . 'Controller@';
+        Route::get('/category/index', ['as' => 'admin/' . $controllerName . '/index', 'uses' => $controller . 'index']);
+        Route::get('/category/form', ['as' => 'admin/' . $controllerName . '/form', 'uses' => $controller . 'formAdd']);
+        Route::post('/category/store', ['as' => 'admin/' . $controllerName . '/store', 'uses' => $controller . 'store']);
+
+        Route::get('/category/create', ['as' => 'admin/' . $controllerName . '/create', 'uses' => $controller . 'create']);
+        Route::post('/category/edit', ['as' => 'admin/' . $controllerName . '/edit', 'uses' => $controller . 'edit']);
+        Route::post('/category/delete', ['as' => 'admin/' . $controllerName . '/delete', 'uses' => $controller . 'delete']);
+
+        Route::get('/category/status', ['as' => 'admin/status/edit', 'uses' => $controller . 'edit']);
+        Route::get('/category/change-ordering/{ordering?}-{id?}', ['as' => 'admin/category/ordering', 'uses' => $controller . 'ordering']);
+        Route::get('/category/change-ordering/{ordering?}-{id?}', ['as' => 'admin/category/ordering', 'uses' => $controller . 'ordering']);
     });
 });

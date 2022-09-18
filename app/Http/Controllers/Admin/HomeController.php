@@ -8,10 +8,10 @@ class HomeController extends MainController
 {
 
     public function home(){
-        return view('backend.pages.dashboard.index', []);
+        return view('admin.pages.dashboard.index', []);
     }
 
     public function login(){
-        return view('backend.user.login', []);
+        return view('admin.user.login', []);
     }
 }

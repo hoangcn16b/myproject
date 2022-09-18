@@ -11,7 +11,7 @@ use App\Models\Admin\Slider as MainModel;
 class SliderController extends MainController
 {
     public $model;
-    public $pathViewController = 'backend.pages.slider.';  // slider
+    public $pathViewController = 'admin.pages.slider.';  // slider
     public $controllerName     = 'slider';
     public $inTable     = 'sliders';
     public function __construct()
@@ -28,13 +28,13 @@ class SliderController extends MainController
     public function index()
     {
         $items = $this->model->listItems();
-        return view('backend.pages.slider.index', ['items' => $items]);
+        return view('admin.pages.slider.index', ['items' => $items]);
     }
 
     public function formAdd(Request $request)
     {
    
-        return view('backend.pages.slider.create',[]);
+        return view('admin.pages.slider.create',[]);
     }
     /**
      * Show the form for creating a new resource.
